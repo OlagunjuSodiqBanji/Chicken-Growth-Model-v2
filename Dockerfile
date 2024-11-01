@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 8501
 
 # Command to run the app
-CMD ["/bin/bash", "-c", ". venv/bin/activate && streamlit run streamlit_main.py --server.port=8501 --server.host=0.0.0.0 --server.headless=true"]
+ENTRYPOINT ["streamlit", "run", "streamlit_main.py", "--server.port=8501", "--server.address=0.0.0.0"]
