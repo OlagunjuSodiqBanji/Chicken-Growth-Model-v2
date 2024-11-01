@@ -3,6 +3,7 @@ FROM python:3.10.10-slim
 
 # Set the working directory in the container
 WORKDIR /app
+COPY requirements.txt .
 
 # Install the virtualenv package
 RUN pip install --no-cache-dir virtualenv
