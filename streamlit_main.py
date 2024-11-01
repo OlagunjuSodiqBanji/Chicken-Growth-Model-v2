@@ -64,7 +64,9 @@ if st.session_state.Selectbox=="Other":
     st.number_input(label="Expected weight in grams of adult maturity in adult Rooster Breed",key="HenA")
 sh1=st.number_input(
     label= "Weight Of Chicken Hatched In Grams",
-    key="eggweight"
+    key="eggweight",
+    min_value=30,
+    max_value=454
 )
 
 

@@ -1,9 +1,7 @@
 scikit-learn
-numpy
+numpy==1.26.4
 joblib
 streamlit==1.39.0
 streamlit-lottie==0.0.5
 scipy==1.14.1
 joblib==1.4.2
-
-
