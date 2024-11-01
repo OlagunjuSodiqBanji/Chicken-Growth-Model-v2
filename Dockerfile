@@ -1,18 +1,20 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.10.10-slim
+# app/Dockerfile
 
-# Set the working directory in the container
+FROM python:3.9-slim
+
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    software-properties-common \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+    
 COPY requirements.txt .
 
 # Install the virtualenv package
-RUN pip install --no-cache-dir virtualenv
-
-# Create a virtual environment
-RUN virtualenv venv
-
-# Activate the virtual environment and install dependencies
-RUN . venv/bin/activate && pip install --no-cache-dir -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
@@ -20,5 +22,11 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 8501
 
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 # Command to run the app
 ENTRYPOINT ["streamlit", "run", "streamlit_main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+
+
+
+
