@@ -51,7 +51,7 @@ infomation()
 
 sh= st.selectbox(
     label="Which Breed Type",
-    options=["MN(PureBreed)","MN X MA","MA X MN","MA(PureBreed)","Other"],
+    options=["MN(PureBreed)","MN X MA","MA X MN","MA(PureBreed)",""],
     key="Selectbox"
 
 )
@@ -62,13 +62,40 @@ if st.session_state.Selectbox=="Other":
 
     st.text_input(label="Hen Breed",key="HenBreedType")
     st.number_input(label="Expected weight in grams of adult maturity in adult Rooster Breed",key="HenA")
+
+
 sh1=st.number_input(
     label= "Weight Of Chicken Hatched In Grams",
     key="eggweight",
     min_value=30,
     max_value=454
 )
+feed1=st.number_input(
+    label= "Weight Of Chicken feed In Grams for 4 weeks",
+    key="feed1",
+    min_value=100,
+    max_value=180
+)
+feed2=st.number_input(
+    label= "Weight Of Chicken feed In Grams for 8 weeks perday ",
+    key="feed2",
+    min_value=100,
+    max_value=180
+)
 
+feed3=st.number_input(
+    label= "Weight Of Chicken feed In Grams for 12 weeks per day",
+    key="feed3",
+    min_value=100,
+    max_value=180
+)
+
+feed4=st.number_input(
+    label= "Weight Of Chicken feed In Grams for 16 weeks per day",
+    key="feed4",
+    min_value=100,
+    max_value=180
+)
 
 # Define the column names based on your training data
 column_names = [
@@ -120,7 +147,7 @@ predicted_valuebw16 = modelbw16.predict(data_df_bw16)
 
 
 
-prediction_df = pd.DataFrame([[predicted_valuebw8,predicted_valuebw12,predicted_valuebw16]],columns=["Predicted Body Weight at 8 weeks","Predicted Body Weight at 12 weeks","Predicted Body Weight at 16 weeks",])
+prediction_df = pd.DataFrame([[(predicted_valuebw8*(st.session_state.feed2/100)),(predicted_valuebw12*(st.session_state.feed3/100)),(predicted_valuebw16*(st.session_state.feed4/100))]],columns=["Predicted Body Weight at 8 weeks","Predicted Body Weight at 12 weeks","Predicted Body Weight at 16 weeks",])
 st.write(prediction_df)
 
 
