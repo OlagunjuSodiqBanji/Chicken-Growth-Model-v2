@@ -74,27 +74,27 @@ feed1=st.number_input(
     label= "Weight Of Chicken feed In Grams for 4 weeks",
     key="feed1",
     min_value=100,
-    max_value=180
+    max_value=100
 )
 feed2=st.number_input(
     label= "Weight Of Chicken feed In Grams for 8 weeks perday ",
     key="feed2",
     min_value=100,
-    max_value=180
+    max_value=100
 )
 
 feed3=st.number_input(
     label= "Weight Of Chicken feed In Grams for 12 weeks per day",
     key="feed3",
     min_value=100,
-    max_value=180
+    max_value=100
 )
 
 feed4=st.number_input(
     label= "Weight Of Chicken feed In Grams for 16 weeks per day",
     key="feed4",
     min_value=100,
-    max_value=180
+    max_value=100
 )
 
 # Define the column names based on your training data
