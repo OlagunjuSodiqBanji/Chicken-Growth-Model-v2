@@ -147,7 +147,7 @@ predicted_valuebw16 = modelbw16.predict(data_df_bw16)
 
 
 
-prediction_df = pd.DataFrame([[(predicted_valuebw8*(st.session_state.feed2/100)-100),(predicted_valuebw8*(st.session_state.feed2/40)),(predicted_valuebw12*(st.session_state.feed3/80)),(predicted_valuebw16*(st.session_state.feed4/100))]],columns=["Predicted Body Weight at 4 weeks","Predicted Body Weight at 8 weeks","Predicted Body Weight at 12 weeks","Predicted Body Weight at 16 weeks",])
+prediction_df = pd.DataFrame([[(predicted_valuebw8*(st.session_state.feed2/40)-100),(predicted_valuebw8*(st.session_state.feed2/40)),(predicted_valuebw12*(st.session_state.feed3/80)),(predicted_valuebw16*(st.session_state.feed4/100))]],columns=["Predicted Body Weight at 4 weeks","Predicted Body Weight at 8 weeks","Predicted Body Weight at 12 weeks","Predicted Body Weight at 16 weeks",])
 st.write(prediction_df)
 
 
